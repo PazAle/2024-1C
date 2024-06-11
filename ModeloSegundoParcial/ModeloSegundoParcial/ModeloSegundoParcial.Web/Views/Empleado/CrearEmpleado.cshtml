@@ -1,0 +1,26 @@
+﻿@using ModeloSegundoParcial.Dominio.Entidades
+@model ModeloSegundoParcial.Dominio.Entidades.Empleado
+
+@{
+    ViewBag.Title = "Crear Empleado";
+}
+
+<h2>Crear Empleado</h2>
+
+<form action="/Empleado/CrearEmpleado" method="post">
+    <div class="form-group">
+        <label for="NombreCompleto">Nombre:</label>
+        <input type="text" class="form-control" id="NombreCompleto" name="NombreCompleto" required>
+    </div>
+        <div class="form-group">
+            <label for="IdSucursal">Sucursal:</label>
+            <select class="form-control" id="IdSucursal" name="IdSucursal" required>
+                <option value="">Seleccione una sucursal</option>
+                @foreach (var item in ViewBag.Sucursales)
+                {
+                    <option value="@item.IdSucursal">@item.Direccion</option>
+                }
+            </select>
+        </div>
+    <button type="submit" class="btn btn-primary mt-2">Guardar</button>
+</form>
